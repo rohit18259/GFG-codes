@@ -1,5 +1,5 @@
 import java.util.*;
-
+ 
 class Node{ // Node of a link list
 	int data;
 	Node next;
