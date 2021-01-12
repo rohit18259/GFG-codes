@@ -10,7 +10,7 @@ class Node{ // Node of a link list
 		this.data = data;
 		this.next = null;
 	}
-}
+} 
 
 public class linklist{ // linklist class
 	Node head;
