@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Node{
+class Node{ // Node of a link list
 	int data;
 	Node next;
 	Node (){
@@ -12,10 +12,10 @@ class Node{
 	}
 }
 
-public class linklist{
+public class linklist{ // linklist class
 	Node head;
 	Node tail;
-	public void append(int data){
+	public void append(int data){ // to append data to end of linklist
 		if (head==null){
 			Node node = new Node(data);
 			this.head = node;
@@ -28,7 +28,7 @@ public class linklist{
 		}
 	}
 	
-	public void append(Node node){
+	public void append(Node node){ // to append node to end of linklist
 		if (head==null){
 			this.head = node;
 			this.tail = node;
@@ -39,7 +39,7 @@ public class linklist{
 		}
 	}
 
-	public void delete(int index){
+	public void delete(int index){ // to delete the node at position index
 		Node cur = head;
 		if (index==0){
 			this.head = this.head.next;
@@ -57,7 +57,7 @@ public class linklist{
 			}
 		}
 	}
-	public int getSize(){
+	public int getSize(){ // get length of linklist
 		Node cur = this.head;
 		int length = 0;
 		while (cur!=null){
@@ -67,7 +67,7 @@ public class linklist{
 		return length;
 	}
 
-	public int getNth(int n){
+	public int getNth(int n){ // get Nth element of linklist from front
 		Node cur = this.head;
 		int i = 0;
 		while (i<n){
@@ -76,7 +76,7 @@ public class linklist{
 		}
 		return cur.data;
 	}
-	public int getNthEnd(int n){
+	public int getNthEnd(int n){ // get Nth element of linklist from end
 		Node cur = this.head;
 		Node end = cur;
 		int count = 0;
@@ -90,7 +90,7 @@ public class linklist{
 		}
 		return cur.data;
 	}
-	public int getMiddle(){
+	public int getMiddle(){ // get middle element of linklist
 		Node slow = this.head;
 		Node fast = this.head;
 		while (fast!=null && fast.next!=null){
@@ -100,7 +100,7 @@ public class linklist{
 		return slow.data;
 	}
 
-	public int getCount(int value){
+	public int getCount(int value){ // get the number of times value appears in linklist
 		int count = 0;
 		Node cur = this.head;
 		while (cur!=null){
@@ -112,7 +112,7 @@ public class linklist{
 		return count;
 	}
 
-	public int getLengthLoop(){
+	public int getLengthLoop(){ // get the length of the loop in linklist
 		if (detectLoop()==false){
 			return 0;
 		}
@@ -139,7 +139,7 @@ public class linklist{
 		return count;
 	}
 
-	public boolean detectLoop(){
+	public boolean detectLoop(){ // detect if there is a loop in linklist
 		Node slow = this.head;
 		Node fast = this.head;
 		int count = 0;
@@ -154,7 +154,7 @@ public class linklist{
 		return false;
 	}
 
-	public void removeduplicate(){
+	public void removeduplicate(){ // works for sorted linklist // removes duplicate elements in linklist
 		Node cur = this.head;
 		while (cur!=null){
 			if (cur.next==null){
@@ -179,7 +179,7 @@ public class linklist{
 			}
 		}
 	}
-	public void swap(int x,int y){
+	public void swap(int x,int y){ // swap nodes at xth and yth position in linklist
 		if (x==y){
 			return;
 		}
@@ -215,7 +215,7 @@ public class linklist{
 		}
 	}
 
-	public void pairSwipe(){
+	public void pairSwipe(){ // pairwise swap all nodes of linklist
 		Node cur1 = this.head;
 		Node cur2 = cur1.next;
 		while (cur1!=null && cur2!=null){
@@ -236,7 +236,7 @@ public class linklist{
 		}
 	}
 
-	public static linklist intersection(linklist l1,linklist l2){
+	public static linklist intersection(linklist l1,linklist l2){// find the common elements in two sorted linklist
 		Node cur1 = l1.head;
 		Node cur2 = l2.head;
 		linklist l = new linklist();
@@ -256,7 +256,7 @@ public class linklist{
 		return l;
 	}
 
-	public static Node getIntersection(linklist l1,linklist l2){
+	public static Node getIntersection(linklist l1,linklist l2){ // get intersection node of two linklist
 		Node cur1 = l1.head;
 		Node cur2 = l2.head;
 		int n1 = 0;
@@ -291,7 +291,7 @@ public class linklist{
 		return cur1;
 	}
 
-	public linklist merge(linklist l1,linklist l2){
+	public linklist merge(linklist l1,linklist l2){ // works for sorted linklist // merge two sorted linklist
 		linklist l = new linklist();
 		Node cur1 = l1.head;
 		Node cur2 = l2.head;
@@ -322,7 +322,7 @@ public class linklist{
 		return l;
 	}
 
-	public linklist mergeSort(linklist l,int n){
+	public linklist mergeSort(linklist l,int n){ // mergesort a linklist
 		if (n<=1){
 			return l;
 		}
@@ -349,7 +349,7 @@ public class linklist{
 		}
 	}
 
-	public linklist sort(){
+	public linklist sort(){ // calls mergesort on the linklist
 		Node cur = this.head;
 		int n = 0;
 		while (cur!=null){
@@ -359,7 +359,7 @@ public class linklist{
 		return mergeSort(this,n);
 	}
 
-	public static linklist maxSum(linklist l1,linklist l2){
+	public static linklist maxSum(linklist l1,linklist l2){ // works for the two sorted linklist // Construct a MaxSum linklist out of the two linklist with some common nodes
 		Node cur1 = l1.head;
 		Node cur2 = l2.head;
 		int sum1 = 0; int sum2 = 0;
@@ -427,7 +427,7 @@ public class linklist{
 		return l;
 	}
 
-	public void print(){
+	public void print(){ // print the linklist in one line
 		Node cur = head;
 		while (cur!=null){
 			System.out.print(cur.data+" ");
@@ -440,17 +440,11 @@ public class linklist{
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 
-		linklist l1 = new linklist();
-		linklist l2 = new linklist();
-		int n1 = in.nextInt();
-		for (int i=0;i<n1;i++){
-			l1.append(in.nextInt());
+		linklist l = new linklist();
+		int n = in.nextInt();
+		for (int i=0;i<n;i++){
+			l.append(in.nextInt());
 		}
-		int n2 = in.nextInt();
-		for (int i=0;i<n2;i++){
-			l2.append(in.nextInt());
-		}
-		linklist l = maxSum(l1,l2);
 		l.print();
 	}
 }
