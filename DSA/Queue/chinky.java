@@ -13,7 +13,7 @@ class comparator implements Comparator<Integer>{
 		return 0;
 	}
 }
-
+ 
 public class chinky{
 
 	public static void main(String[] args){
